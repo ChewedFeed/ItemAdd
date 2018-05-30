@@ -1,0 +1,7 @@
+{
+  "lambda": {
+    "role": "itemadd-executor",
+    "name": "itemadd",
+    "region": "eu-west-2"
+  }
+}
