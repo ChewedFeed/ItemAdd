@@ -17,7 +17,7 @@ const payLoad = {
         "MessageId": "cd8c40cf-5be1-5025-992f-134ebf896806",
         "TopicArn": "arn:aws:sns:eu-west-2:314171142973:feeds",
         "Subject": null,
-        "Message": "{\"feedId\":\"503ae01a-34d7-5dc2-b0b6-adbc29ebbc5c\"}",
+        "Message": "{\"feedId\":\"503ae01a-34d7-5dc2-b0b6-adbc29ebbc5c\",\"imageDetails\":{},\"title\":\"Bishop who lit up royal wedding tells Washington crowd: 'Love your neighbor'\",\"url\":\"https://www.theguardian.com/us-news/2018/may/24/bishop-michael-curry-reclaiming-jesus-washington\"}",
         "Timestamp": "2018-05-25T10:15:04.678Z",
         "SignatureVersion": "1",
         "Signature": "BZ0Kdu2/596suGiIjIH3yp8nNKY9lkJ34GGyrb4BjC23mqW09vBl5Ju2R9wRe2Vv0n7bWEI7ou6oqO4wNcRdfIkCx40opX2lPKJInFpcfUa3uY/kpj1sBxaXyuW9xZrIF1e/guPA5vq3Clj2b1NHbHcaK8o2wg6RegsZnFY6fiQZiGD35bUMaqWGdRSuYoledaBJa5yUcoNSZExuMRrdRv8KwsvcD5ihqWw3U25jGTobHRLnROSNyF4wfs4g8ymGuMzzeYWbsHLYrtUwrvrnEAQw5F9DtikQr8h0CWc1SHXfr58DK5njessX/tPgQ7/HrX+4RENaEZ9o9bJE1DehNw==",
@@ -29,8 +29,8 @@ const payLoad = {
   ]
 }
 
-describe('Feed Parser', () => {
-  it('it should parse the feed', (done) => {
+describe('Item Add', () => {
+  it('it should add the item to the database', (done) => {
     underTest(payLoad, console, (error, result) => {
       if (error) {
         done(Error(error))
@@ -43,24 +43,6 @@ describe('Feed Parser', () => {
       expect(resultObj).to.have.property('message')
       expect(resultObj.message).to.have.property('success')
       expect(resultObj.message.success).to.be.equal(true)
-
-      done()
-    })
-  })
-
-  it('it should skip lastUpdated less than 1h', (done) => {
-    underTest(payLoad, console, (error, result) => {
-      if (error) {
-        done(Error(error))
-      }
-
-      expect(result).to.be.an('object')
-      expect(result).to.have.property('body')
-
-      let resultObj = JSON.parse(result.body)
-      expect(resultObj).to.have.property('message')
-      expect(resultObj.message).to.have.property('success')
-      expect(resultObj.message.success).to.be.equal(false)
 
       done()
     })
