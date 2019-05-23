@@ -440,9 +440,9 @@ check-error@^1.0.1:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/check-error/-/check-error-1.0.2.tgz#574d312edd88bb5dd8912e9286dd6c0aed4aac82"
 
-chewedfeed@^0.0.15:
-  version "0.0.15"
-  resolved "https://registry.yarnpkg.com/chewedfeed/-/chewedfeed-0.0.15.tgz#62bdb74f282ecbe95c2e02031635536fbbc75229"
+chewedfeed@^0.0.16:
+  version "0.0.16"
+  resolved "https://registry.yarnpkg.com/chewedfeed/-/chewedfeed-0.0.16.tgz#7b75de613c5fee07c01aba72d5e17b2870e28e1b"
   dependencies:
     aws-sdk "^2.247.1"
     blindparser "^1.0.3"
